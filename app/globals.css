@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply font-openSans text-text text-sm leading-[22px] antialiased;
+  }
+  .container {
+    @apply mx-auto px-5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-asap tracking-wide text-title;
+  }
+
+  .section-title {
+    @apply relative text-center;
+
+    h2 {
+      @apply relative uppercase font-bold text-xl text-title after:content-[''];
+
+      &:after {
+        @apply absolute right-0 bottom-0 left-0 w-8 h-[2px] mx-auto -my-5 bg-title;
+      }
+    }
+  }
+
+  .feature {
+    @apply py-8 pl-24 pr-8 border-[3px] border-[#f7f7f7] relative transition-all duration-500;
+
+    .feature-icon {
+      @apply text-3xl text-primary w-16 h-16 leading-[60px] text-center flex justify-center items-center absolute left-0 top-1/2 -translate-y-1/2 bg-[#f7f7f7] transition-all duration-500 group-hover:bg-primary;
+    }
+    h4 {
+      @apply uppercase text-xl font-normal pb-4;
+    }
+  }
+
+  .feature-2 {
+    @apply overflow-hidden bg-primary sm:h-[180px] 2xl:h-[215px] pt-10 pb-10 sm:pb-0 text-center transition-all duration-500;
+
+    .feature-icon {
+      @apply mb-5 transition-all duration-500 text-4xl text-white;
+
+      svg {
+        @apply inline-block;
+      }
+    }
+
+    .title {
+      @apply text-white uppercase text-base font-bold transition-all duration-500;
+    }
+    .desc {
+      @apply sm:opacity-0 sm:invisible sm:-mb-[100px] mt-4 relative px-3 text-white;
+    }
+
+    @screen sm {
+      &:hover {
+        @apply pt-4;
+        .feature-icon {
+          @apply opacity-0 invisible pt-0;
+        }
+        .title {
+          @apply -mt-[50px];
+        }
+        .desc {
+          @apply opacity-100 visible mb-0;
+        }
+      }
+    }
+  }
+
+  .footer-title h4 {
+    @apply sm:mb-8;
+  }
+
+  .footer-plus-icon {
+    @apply sm:hidden;
+  }
+
+  @media (max-width: 640px) {
+    .footer-title {
+      @apply flex items-center mb-0 space-x-4;
+    }
+    .footer-content {
+      @apply max-h-0 transition-all duration-500 overflow-hidden;
+    }
+    .footer-menu-col input:checked ~ .footer-content {
+      @apply max-h-screen mt-4;
+    }
+  }
+
+  .footer-menu-col input:checked + label .active_minus {
+    @apply hidden;
+  }
+}
